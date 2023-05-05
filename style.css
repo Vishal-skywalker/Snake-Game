@@ -1,0 +1,32 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-image: linear-gradient(rgb(19, 53, 19), rgb(59, 59, 16));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#board
+{
+    border: 3px solid black;
+    height: 90vh;
+    width: 90vh;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    background-image: linear-gradient(rgb(133, 246, 133), rgb(226, 226, 81));
+    margin: 5vh auto 0 auto;
+}
+.head
+{
+    background-color: rgb(244, 92, 92);
+    border: 1px solid purple;
+}
+.food
+{
+    background-color: rgb(247, 189, 15);
+    border: 1px solid purple;
+}
