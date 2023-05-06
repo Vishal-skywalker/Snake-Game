@@ -26,11 +26,20 @@ const createFood = () => {
     foodElement.style.gridColumn = food.x;
     board.appendChild(foodElement);
 }
-
+const setScores = () => {
+    scorePanel.innerHTML = '';
+    const scorecard = document.createElement('h2');
+    scorecard.innerHTML = 'Score - ' + score;
+    const heighscorecard = document.createElement('h3');
+    heighscorecard.innerHTML = 'Heigh Score - ' + heighScore;
+    scorePanel.appendChild(scorecard);
+    scorePanel.appendChild(heighscorecard);
+}
 const main = () => {
     now = Date.now();
     elapsed = now - then;
     if (elapsed > speed) {
+        setScores();
         then = now - (elapsed % speed);
         board.innerHTML = '';
         createFood();
@@ -59,9 +68,9 @@ const main = () => {
         }
         snake[0].x += inputData.x;
         snake[0].y += inputData.y;
-        snake.forEach(e => {
+        snake.forEach((e, i) => {
             const element = document.createElement('div');
-            element.classList.add('head');
+            element.classList.add(i === 0 ? 'head' : 'snakeBody');
             element.style.gridRow = e.y;
             element.style.gridColumn = e.x;
             board.appendChild(element);

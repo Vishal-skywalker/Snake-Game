@@ -12,8 +12,8 @@ body
 #board
 {
     border: 3px solid black;
-    height: 90vh;
-    width: 90vh;
+    height: 90vmin;
+    width: 90vmin;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr);
@@ -22,11 +22,42 @@ body
 }
 .head
 {
-    background-color: rgb(244, 92, 92);
-    border: 1px solid purple;
+    background-color: rgb(48, 8, 209);
+    border: 2px solid rgb(229, 225, 229);
+    scale: 1.1;
+    border-radius: 5px;
+}
+.snakeBody
+{
+    background-color: rgb(155, 27, 223);
+    border: 2px solid rgb(234, 233, 234);
+    border-radius: 5px;
 }
 .food
 {
-    background-color: rgb(247, 189, 15);
-    border: 1px solid purple;
+    background-color: rgb(247, 77, 15);
+    border: 2px solid purple;
+    border-radius: 5px;
+}
+#scorePanel
+{
+    display: grid;
+    width: 20vmin;
+    grid-template-rows: repeat(2, 1fr);
+    border: 2px solid rgb(255, 255, 255);
+    position: absolute;
+    top: 10vmin;
+    right: 10vmin;
+    font-family: monospace;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.766);
+}
+#waterMark 
+{
+    color: rgba(255, 255, 255, 0.388);
+    font-family: monospace;
+    position: absolute;
+    left: 5vmin;
+    bottom: 5vmin;
+    font-size: 2vmin;
 }
