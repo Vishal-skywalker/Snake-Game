@@ -59,6 +59,13 @@ const main = () => {
             // console.log('snake1 :>> ', JSON.stringify(snake));
             snake.unshift({ x: snake[0].x + inputData.x, y: snake[0].y + inputData.y });
             score++;
+            if (speed > 160) {
+                speed-=4;
+            }else if (speed > 120) {
+                speed-=2;
+            }else{
+                speed-=0.25;
+            }
             foodSound.play();
             // console.log('snake :>> ', JSON.stringify(snake));
             setFood();
