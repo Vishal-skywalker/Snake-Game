@@ -43,28 +43,29 @@ const main = () => {
         then = now - (elapsed % speed);
         board.innerHTML = '';
         createFood();
-        if (snake[0].x > 19 || snake[0].y > 19 || snake[0].x < 1 || snake[0].y < 1) {
+        if (isGameOver(snake)) {
             // console.log('e :>> ', snake[0]);
             snake = [{ ...start }];
             inputData = { x: 0, y: 0 };
             heighScore = heighScore < score ? score : heighScore;
             setFood();
-            localStorage.setItem('heighScore',heighScore.toString());
+            localStorage.setItem('heighScore', heighScore.toString());
             // console.log('e :>> ', snake[0]);
             gameOver.play();
-            alert('Game Over - Score - '+ score + ' heighScore - ' + heighScore);
+            alert('Game Over - Score - ' + score + ' heighScore - ' + heighScore);
             score = 0;
+            speed = 200;
         }
         if (food.x === snake[0].x && food.y === snake[0].y) {
             // console.log('snake1 :>> ', JSON.stringify(snake));
             snake.unshift({ x: snake[0].x + inputData.x, y: snake[0].y + inputData.y });
             score++;
             if (speed > 160) {
-                speed-=4;
-            }else if (speed > 120) {
-                speed-=2;
-            }else{
-                speed-=0.25;
+                speed -= 4;
+            } else if (speed > 120) {
+                speed -= 2;
+            } else {
+                speed -= 0.25;
             }
             foodSound.play();
             // console.log('snake :>> ', JSON.stringify(snake));
@@ -120,4 +121,15 @@ function checkKey(e) {
             break;
     }
     move.play();
+}
+
+function isGameOver(snake) {
+    let onBody = false;
+    for (let i = 1; i < snake.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            onBody = true;
+            break;
+        }
+    }
+    return onBody || snake[0].x > 19 || snake[0].y > 19 || snake[0].x < 1 || snake[0].y < 1;
 }
