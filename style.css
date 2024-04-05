@@ -1,3 +1,8 @@
+:root
+{
+    --board-shadow: 0 0 20px rgba(95, 223, 240, 0.682);
+    --snake-shadow: 0 0 15px rgba(95, 223, 240, 0.682);
+}
 *
 {
     margin: 0;
@@ -5,39 +10,45 @@
 }
 body
 {
-    background-image: linear-gradient(rgb(19, 53, 19), rgb(59, 59, 16));
+    background-color: rgb(0, 29, 31);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 #board
 {
-    border: 3px solid black;
+    border: 3px solid rgb(95, 187, 240);
+    border-radius: 5px;
+    box-shadow: var(--board-shadow);;
     height: 90vmin;
     width: 90vmin;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr);
-    background-image: linear-gradient(rgb(133, 246, 133), rgb(226, 226, 81));
+    background-color: rgb(3, 28, 29);
     margin: 5vh auto 0 auto;
 }
 .head
 {
-    background-color: rgb(48, 8, 209);
-    border: 2px solid rgb(229, 225, 229);
+    background-color: rgb(51, 195, 4);
+    border: 2px solid rgb(193, 193, 193);
+    box-shadow: var(--snake-shadow);
     scale: 1.1;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 .snakeBody
 {
     background-color: rgb(155, 27, 223);
     border: 2px solid rgb(234, 233, 234);
-    border-radius: 5px;
+    box-shadow: var(--snake-shadow);
+    border-radius: 12px;
 }
 .food
 {
-    background-color: rgb(247, 77, 15);
-    border: 2px solid purple;
-    border-radius: 5px;
+    background-color: rgb(251, 85, 20);
+    border: 2px solid rgb(235, 235, 235);
+    scale: 1.1;
+    box-shadow: var(--snake-shadow);
+    border-radius: 12px;
 }
 #scorePanel
 {
@@ -54,7 +65,7 @@ body
 }
 #waterMark 
 {
-    color: rgba(255, 255, 255, 0.388);
+    color: rgba(255, 255, 255, 0.7);
     font-family: monospace;
     position: absolute;
     left: 5vmin;

@@ -58,6 +58,7 @@ const main = () => {
         }
         if (food.x === snake[0].x && food.y === snake[0].y) {
             // console.log('snake1 :>> ', JSON.stringify(snake));
+            setFood();
             snake.unshift({ x: snake[0].x + inputData.x, y: snake[0].y + inputData.y });
             score++;
             if (speed > 160) {
@@ -69,7 +70,6 @@ const main = () => {
             }
             foodSound.play();
             // console.log('snake :>> ', JSON.stringify(snake));
-            setFood();
         }
         for (let i = snake.length - 2; i >= 0; i--) {
             snake[i + 1] = { ...snake[i] };
@@ -81,6 +81,9 @@ const main = () => {
             element.classList.add(i === 0 ? 'head' : 'snakeBody');
             element.style.gridRow = e.y;
             element.style.gridColumn = e.x;
+            if (i !== 0 && i > snake.length - 5) {
+                element.style.scale = 1 - 0.03*i;
+            }
             board.appendChild(element);
         });
     }
