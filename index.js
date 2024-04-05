@@ -5,7 +5,7 @@ const gameOver = new Audio('music/gameover.mp3');
 let snake = [{ x: 10, y: 10 }];
 let start = { x: 10, y: 10 };
 let food = {};
-let speed = 200;
+let speed = 100;
 let now, elapsed, then = Date.now();
 let inputData = { x: 0, y: 0 };
 let score = 0;
@@ -81,8 +81,8 @@ const main = () => {
             element.classList.add(i === 0 ? 'head' : 'snakeBody');
             element.style.gridRow = e.y;
             element.style.gridColumn = e.x;
-            if (i !== 0 && i > snake.length - 5) {
-                element.style.scale = 1 - 0.03*i;
+            if (i !== 0) {
+                element.style.scale = 1 - 0.01*i;
             }
             board.appendChild(element);
         });
