@@ -18,7 +18,7 @@ body
 {
     border: 3px solid rgb(95, 187, 240);
     border-radius: 5px;
-    box-shadow: var(--board-shadow);;
+    box-shadow: var(--board-shadow);
     height: 90vmin;
     width: 90vmin;
     display: grid;
@@ -26,6 +26,7 @@ body
     grid-template-rows: repeat(20, 1fr);
     background-color: rgb(3, 28, 29);
     margin: 5vh auto 0 auto;
+    margin-top: 3vh;
 }
 .head
 {
@@ -53,12 +54,9 @@ body
 #scorePanel
 {
     display: grid;
-    width: 20vmin;
-    grid-template-rows: repeat(2, 1fr);
-    border: 2px solid rgb(255, 255, 255);
-    position: absolute;
-    top: 10vmin;
-    right: 10vmin;
+    width: 90vmin;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2vh;
     font-family: monospace;
     text-align: center;
     color: rgba(255, 255, 255, 0.766);
@@ -71,4 +69,29 @@ body
     left: 5vmin;
     bottom: 5vmin;
     font-size: 2vmin;
+}
+#gesuredZone
+{
+    display: none;
+    border: 3px solid rgb(95, 187, 240);
+    border-radius: 5px;
+    box-shadow: var(--board-shadow);
+    margin: 5vh auto 0 auto;
+    width: 90vw;
+    height: 30vh;
+    font-size: 4rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    color: rgba(95, 187, 240, 0.393);
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+@media all and (max-width: 599px)
+{
+    #gesuredZone
+    {
+        display: flex;   
+    }
 }

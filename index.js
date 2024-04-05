@@ -28,9 +28,9 @@ const createFood = () => {
 }
 const setScores = () => {
     scorePanel.innerHTML = '';
-    const scorecard = document.createElement('h2');
+    const scorecard = document.createElement('p');
     scorecard.innerHTML = 'Score - ' + score;
-    const heighscorecard = document.createElement('h3');
+    const heighscorecard = document.createElement('p');
     heighscorecard.innerHTML = 'Heigh Score - ' + heighScore;
     scorePanel.appendChild(scorecard);
     scorePanel.appendChild(heighscorecard);
@@ -135,4 +135,38 @@ function isGameOver(snake) {
         }
     }
     return onBody || snake[0].x > 19 || snake[0].y > 19 || snake[0].x < 1 || snake[0].y < 1;
+}
+
+var touchstartX = 0;
+var touchstartY = 0;
+var touchendX = 0;
+var touchendY = 0;
+
+var gesuredZone = document.getElementById('gesuredZone');
+
+gesuredZone.addEventListener('touchstart', function(event) {
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+}, false);
+
+gesuredZone.addEventListener('touchend', function(event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGesure();
+}, false); 
+
+function handleGesure() {
+    const delX = Math.abs(touchendX - touchstartX);
+    const delY = Math.abs(touchendY - touchstartY);
+    if (touchendX < touchstartX && delX > delY) {
+        checkKey({keyCode: 37});
+    }else if (touchendX > touchstartX && delX > delY) {
+        checkKey({keyCode: 39});
+    }else if (touchendY < touchstartY && delY> delX) {
+        checkKey({keyCode: 38});
+    }else if (touchendY > touchstartY && delY > delX) {
+        checkKey({keyCode: 40});
+    }else if (touchendY == touchstartY) {
+        checkKey({keyCode: 37});
+    }
 }
